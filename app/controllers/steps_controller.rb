@@ -53,15 +53,15 @@ class StepsController < ApplicationController
 
   private
 
-    def find_howto_list
-      @howto_list = HowtoList.find(params[:howto_list_id])
-    end
+  def find_howto_list
+    @howto_list = HowtoList.find(params[:howto_list_id])
+  end
 
-    def set_step
-      @step = @howto_list.steps.find(params[:id])
-    end
+  def set_step
+    @step = @howto_list.steps.find(params[:id])
+  end
 
-    def step_params
-      params[:step].permit(:description)
-    end
+  def step_params
+    params[:step].permit(:description)
+  end
 end

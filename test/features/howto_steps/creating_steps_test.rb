@@ -1,6 +1,6 @@
 require "test_helper"
 
-feature "HowtoSteps::CreatingSteps" do
+feature "Steps::CreatingSteps" do
   before do
     howto_list = howto_lists(:one)
     visit howto_list_path(howto_list.id)

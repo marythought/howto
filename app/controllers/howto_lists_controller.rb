@@ -1,29 +1,20 @@
 class HowtoListsController < ApplicationController
   before_action :set_howto_list, only: [:show, :edit, :update, :destroy]
 
-  # GET /howto_lists
-  # GET /howto_lists.json
   def index
     @howto_lists = HowtoList.all
   end
 
-  # GET /howto_lists/1
-  # GET /howto_lists/1.json
   def show
-    # @steps = Step.where(howto_list_id: @howto_list)
   end
 
-  # GET /howto_lists/new
   def new
     @howto_list = HowtoList.new
   end
 
-  # GET /howto_lists/1/edit
   def edit
   end
 
-  # POST /howto_lists
-  # POST /howto_lists.json
   def create
     @howto_list = HowtoList.new(howto_list_params)
 
@@ -38,8 +29,6 @@ class HowtoListsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /howto_lists/1
-  # PATCH/PUT /howto_lists/1.json
   def update
     respond_to do |format|
       if @howto_list.update(howto_list_params)
@@ -52,8 +41,6 @@ class HowtoListsController < ApplicationController
     end
   end
 
-  # DELETE /howto_lists/1
-  # DELETE /howto_lists/1.json
   def destroy
     @howto_list.destroy
     respond_to do |format|
@@ -63,13 +50,12 @@ class HowtoListsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_howto_list
-      @howto_list = HowtoList.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def howto_list_params
-      params.require(:howto_list).permit(:name, :author, :image_url, :materials)
-    end
+  def set_howto_list
+    @howto_list = HowtoList.find(params[:id])
+  end
+
+  def howto_list_params
+    params.require(:howto_list).permit(:name, :author, :image_url, :materials)
+  end
 end

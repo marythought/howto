@@ -1,6 +1,6 @@
 require "test_helper"
 
-feature "HowtoSteps::DisplayingSteps" do
+feature "Steps::DisplayingSteps" do
   scenario "vising a how-to list displays relevant steps" do
     list = howto_lists(:one)
     visit howto_list_path(list.id)
