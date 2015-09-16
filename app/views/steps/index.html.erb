@@ -1,3 +1,4 @@
+<h1><%= @howto_list.name %></h1>
 <table>
   <thead>
     <tr>
@@ -7,12 +8,11 @@
   </thead>
 
   <tbody>
-    <% @steps.each do |step| %>
+    <% @howto_list.steps.each do |step| %>
       <tr>
-        <td><%= step.description %></td>
-        <td><%= link_to 'Show', howto_list_step(step) %></td>
+        <td id="<%= dom_id(step) %>"><%= step.description %></td>
         <td><%= link_to 'Edit', edit_howto_list_step_path(step) %></td>
-        <td><%= link_to 'Destroy', step, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Destroy', howto_list_step_path(step), method: :delete, data: { confirm: "are you sure?" } %>
       </tr>
     <% end %>
   </tbody>
@@ -21,3 +21,4 @@
 <br>
 
 <%= link_to 'New Step', new_howto_list_step_path %>
+<%= link_to 'Back', howto_lists_path %>

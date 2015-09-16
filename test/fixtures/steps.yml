@@ -12,3 +12,7 @@ two:
 three:
   description: Step 3
   howto_list: one
+
+four:
+  description: Step 4
+  howto_list: two

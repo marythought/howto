@@ -10,7 +10,7 @@ class HowtoListsController < ApplicationController
   # GET /howto_lists/1
   # GET /howto_lists/1.json
   def show
-    @steps = Step.where(howto_list_id: @howto_list)
+    # @steps = Step.where(howto_list_id: @howto_list)
   end
 
   # GET /howto_lists/new

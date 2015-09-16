@@ -1,7 +1,7 @@
 require "test_helper"
 
 feature "Howtolists::Createlists" do
-  scenario "create a new project" do
+  scenario "create a new how to list" do
     visit root_path
     click_link('New Howto list')
     fill_in 'Name', with: howto_lists(:one).name
@@ -14,7 +14,7 @@ feature "Howtolists::Createlists" do
 end
 
 feature "Projects::CreatingAProject" do
-  scenario "when a project is submitted with invalid info" do
+  scenario "when a how to list is submitted with invalid info" do
     visit root_path
     click_link('New Howto list')
     fill_in 'Name', with: ""

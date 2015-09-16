@@ -17,14 +17,13 @@
   <%= @howto_list.materials %>
 </p>
 
-
-<p>Follow these steps to learn <%= @howto_list.name %>: </p>
-  <% @steps.each do |step| %>
-    <ol>
+  <% @howto_list.steps.each do |step| %>
+    <ul>
       <li><%= step.description %></li>
-    </ol>
+    </ul>
   <% end %>
 
-<%= link_to 'Edit Steps', howto_list_steps_path(@howto_list) %>
+<%= link_to 'Edit steps', howto_list_steps_path(@howto_list) %>
+
 <%= link_to 'Edit List Attributes', edit_howto_list_path(@howto_list) %> |
 <%= link_to 'Back', howto_lists_path %>
