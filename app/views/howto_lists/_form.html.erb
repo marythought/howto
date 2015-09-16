@@ -1,0 +1,35 @@
+<%= form_for(@howto_list) do |f| %>
+  <% if @howto_list.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@howto_list.errors.count, "error") %> prohibited this howto_list from being saved:</h2>
+
+      <ul>
+      <% @howto_list.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :author %><br>
+    <%= f.text_field :author %>
+  </div>
+  <div class="field">
+    <%= f.label :image_url %><br>
+    <%= f.text_field :image_url %>
+  </div>
+
+  <div class="field">
+    <%= f.label :materials, "Materials Needed" %><br>
+    <%= f.text_field :materials %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

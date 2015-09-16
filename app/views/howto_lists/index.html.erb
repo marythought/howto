@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>How to do just about anything</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Author</th>
+      <th>Materials Needed</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @howto_lists.each do |howto_list| %>
+      <tr>
+        <td><%= howto_list.name %></td>
+        <td><%= howto_list.author %></td>
+        <td><%= howto_list.materials %></td>
+        <td><%= link_to 'Show', howto_list_path(howto_list) %></td>
+        <td><%= link_to 'Edit', edit_howto_list_path(howto_list) %></td>
+        <td><%= link_to 'Destroy', howto_list, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Howto list', new_howto_list_path %>

@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @howto_list.name %>
+</p>
+
+  <img src="<%= @howto_list.image_url %>">
+
+<p>
+  <strong>Author:</strong>
+  <%= @howto_list.author %>
+</p>
+
+<p>
+  <strong>Materials Needed:</strong>
+  <%= @howto_list.materials %>
+</p>
+
+
+<p>Follow these steps to learn <%= @howto_list.name %>: </p>
+  <% @steps.each do |step| %>
+    <ol>
+      <li><%= step.description %></li>
+    </ol>
+  <% end %>
+
+<%= link_to 'Edit Steps', howto_list_steps_path(@howto_list) %>
+<%= link_to 'Edit List Attributes', edit_howto_list_path(@howto_list) %> |
+<%= link_to 'Back', howto_lists_path %>

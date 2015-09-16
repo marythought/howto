@@ -1,0 +1,14 @@
+# Read about fixtures at
+# http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: How to knit
+  author: Mary
+  image_url: http://downtownshreveport.com/media/2012/07/bunnies-HD-Wallpapers.jpg
+  materials: yarn, needles, patience
+
+two:
+  name: How to write a poem
+  author: Cassie
+  image_url: https://cdn.shopify.com/s/files/1/0224/1915/files/bunny.jpg
+  materials: pen, paper, or word processer

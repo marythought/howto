@@ -1,0 +1,14 @@
+# Read about fixtures at
+# http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  description: Step 1
+  howto_list: one
+
+two:
+  description: Step 2
+  howto_list: one
+
+three:
+  description: Step 3
+  howto_list: one
