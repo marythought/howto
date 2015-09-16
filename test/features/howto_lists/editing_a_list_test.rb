@@ -8,7 +8,7 @@ feature "Howtolists::EditingAList" do
     fill_in "Name", with: "New howto_list name"
     fill_in "Author", with: "New Author"
     click_button "Update Howto list"
-    page.text.must_include "successfully updated"
+    page.text.must_include "Updated list"
     page.must_have_content "New howto_list name"
     page.wont_have_content howto_lists(:one).name
   end

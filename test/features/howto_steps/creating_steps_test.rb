@@ -11,7 +11,7 @@ feature "Steps::CreatingSteps" do
     click_link('New Step')
     fill_in "Description", with: steps(:one)
     click_button('Create Step')
-    page.text.must_include "Step was successfully created"
+    page.text.must_include "Step added!"
     page.status_code.must_equal 200
   end
 

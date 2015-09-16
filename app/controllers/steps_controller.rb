@@ -17,27 +17,27 @@ class StepsController < ApplicationController
 
   def create
     @step = @howto_list.steps.new(step_params)
-    respond_to do |format|
-      if @step.save
-        format.html { redirect_to howto_list_steps_path, notice: 'Step was successfully created.' }
-      else
-        format.html { render :new }
-        format.json { render json: @step.errors, status: :unprocessable_entity }
-      end
+    if @step.save
+      flash[:success] = 'Step added!'
+      redirect_to @howto_list
+    else
+      flash[:error] = "Step could not be saved"
+      render :new
     end
   end
 
   def url_options
     { howto_list_id: params[:howto_list_id] }.merge(super)
+    # this is hacking into the url_options which is in application_controller
   end
 
   def update
     if @step.update_attributes(step_params)
-      flash[:success] = "Saved step."
+      flash[:success] = "Updated step."
       redirect_to howto_list_steps_path
     else
       flash[:error] = "That step could not be saved."
-      render action: :edit
+      render :edit
     end
   end
 
@@ -62,6 +62,6 @@ class StepsController < ApplicationController
   end
 
   def step_params
-    params[:step].permit(:description)
+    params.require(:step).permit(:description)
   end
 end

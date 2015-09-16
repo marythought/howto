@@ -11,7 +11,7 @@ feature "Steps::EditingAStep" do
     click_link('Edit')
     fill_in "Description", with: "New description"
     click_button "Update Step"
-    page.text.must_include "Saved step."
+    page.text.must_include "Updated step."
     page.must_have_content "New description"
   end
 

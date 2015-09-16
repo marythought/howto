@@ -17,27 +17,22 @@ class HowtoListsController < ApplicationController
 
   def create
     @howto_list = HowtoList.new(howto_list_params)
-
-    respond_to do |format|
-      if @howto_list.save
-        format.html { redirect_to @howto_list, notice: 'Howto list was successfully created.' }
-        format.json { render :show, status: :created, location: @howto_list }
-      else
-        format.html { render :new }
-        format.json { render json: @howto_list.errors, status: :unprocessable_entity }
-      end
+    if @howto_list.save
+      flash[:success] = 'Howto list was successfully created.'
+      redirect_to @howto_list
+    else
+      flash[:error] = "Howto list could not be saved"
+      render :new
     end
   end
 
   def update
-    respond_to do |format|
-      if @howto_list.update(howto_list_params)
-        format.html { redirect_to @howto_list, notice: 'Howto list was successfully updated.' }
-        format.json { render :show, status: :ok, location: @howto_list }
-      else
-        format.html { render :edit }
-        format.json { render json: @howto_list.errors, status: :unprocessable_entity }
-      end
+    if @howto_list.update(howto_list_params)
+      flash[:success] = "Updated list."
+      redirect_to @howto_list
+    else
+      flash[:error] = "List could not be saved."
+      render action: :edit
     end
   end
 
