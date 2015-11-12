@@ -3,25 +3,14 @@
 By [Mary Dickson](http://www.marydickson.com).
 
 ## Description
-**Project Portfolio** This is a Rails app designed with BDD to showcase my work as a web developer.
+**How-To** This is a Rails app for making "how to lists" designed with BDD to showcase my work as a web developer. Features "has_many" and "belongs_to" relationships, as well as nested resources.
 
 ## Usage
-Run `rake test` to test.
-
-### Known Issues
-
-If you discover any bugs, feel free to create an issue on GitHub fork and
-send a pull request.
+* Run `rake test` to test.
 
 ## Authors
 
 * Mary Dickson (https://github.com/marythought)
-
-## Attribution
-* Readme template from [Stephanie Hekker](http://www.stephaniehekker.com/why-you-should-write-a-readme-for-your-application/)
-
-* Contact icons via: (http://blog.spoongraphics.co.uk/freebies/free-hand-drawn-doodle-icon-set-for-bloggers)
-* Template adapted from: (http://foundation.zurb.com/templates/portfolio.html)
 
 ## Contributing
 
