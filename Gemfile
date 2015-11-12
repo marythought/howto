@@ -19,6 +19,7 @@ group :development, :test do
   gem 'minitest-rails-capybara'
   gem 'poltergeist'
   gem 'sqlite3'
+  gem 'shoulda-matchers'
 end
 
 group :development do

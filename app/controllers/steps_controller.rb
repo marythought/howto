@@ -1,60 +1,67 @@
 class StepsController < ApplicationController
+  before_action :find_howto_list
   before_action :set_step, only: [:show, :edit, :update, :destroy]
 
   def index
-    @steps = Step.where(howto_list_id: @howto_list_id)
   end
 
   def show
   end
 
   def new
-    @step = Step.new
+    @step = @howto_list.steps.new
   end
 
   def edit
   end
 
   def create
-    @step = Step.new(step_params)
-
-    respond_to do |format|
-      if @step.save
-        format.html { redirect_to @step, notice: 'Step was successfully created.' }
-        format.json { render :show, status: :created, location: @step }
-      else
-        format.html { render :new }
-        format.json { render json: @step.errors, status: :unprocessable_entity }
-      end
+    @step = @howto_list.steps.new(step_params)
+    if @step.save
+      flash[:success] = 'Step added!'
+      redirect_to @howto_list
+    else
+      flash[:error] = "Step could not be saved"
+      render :new
     end
   end
 
+  def url_options
+    { howto_list_id: params[:howto_list_id] }.merge(super)
+    # this is hacking into the url_options which is in application_controller
+  end
+
   def update
-    respond_to do |format|
-      if @step.update(step_params)
-        format.html { redirect_to @step, notice: 'Step was successfully updated.' }
-        format.json { render :show, status: :ok, location: @step }
-      else
-        format.html { render :edit }
-        format.json { render json: @step.errors, status: :unprocessable_entity }
-      end
+    if @step.update_attributes(step_params)
+      flash[:success] = "Updated step."
+      redirect_to howto_list_steps_path
+    else
+      flash[:error] = "That step could not be saved."
+      render :edit
     end
   end
 
   def destroy
     @step.destroy
-    respond_to do |format|
-      format.html { redirect_to steps_url, notice: 'Step was successfully destroyed.' }
-      format.json { head :no_content }
+    if @step.destroy
+      flash[:success] = "Step was deleted."
+    else
+      flash[:error] = "Step could not be deleted."
     end
+    redirect_to howto_list_steps_path
   end
 
   private
-    def set_step
-      @step = Step.find(params[:id])
-    end
 
-    def step_params
-      params.require(:step).permit(:description)
-    end
+  def find_howto_list
+    @howto_list = HowtoList.find(params[:howto_list_id])
+  end
+
+  def set_step
+    @step = @howto_list.steps.find(params[:id])
+  end
+
+  def step_params
+    params.require(:step).permit(:description)
+  end
 end

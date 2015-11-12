@@ -6,6 +6,5 @@ feature "Howtolists::ShowingAList" do
     page.must_have_content howto_lists(:one).name
     page.must_have_content howto_lists(:one).author
     page.must_have_content howto_lists(:one).materials
-    page.must_have_content "Follow these steps to learn #{howto_lists(:one).name}"
   end
 end
